@@ -56,8 +56,8 @@ function buildTable(len, width) {
 // find and replace !er command with er img
 function findEssentialRewards(cellData) {
     // find and replace !er with &lt;img src="">
-    const img = ' &lt;img title="Essential Rewards Only" src="#"> alt="Essential Rewards Only"';
-    let result = cellData.replace('!er', img)
+    const img = ' &lt;img title="Essential Rewards Only" src="#" alt="Essential Rewards Only">';
+    let result = cellData.replaceAll('!er', img)
     console.log(result);
     return result;
 }
@@ -72,13 +72,17 @@ function getTableData(len, width) {
     for (let row = 0; row < len; row++) {
         // check open table row
         if (row == 0) {
-            cellData += '<br>&lt;thead class="bg-primary text-white"><br>';
+            cellData += '<br>&lt;thead class="bg-primary text-white font-weight-bold"><br>';
         } else {
             cellData += `<br>&lt;tr><br>`;
         }
         for (let col = 0; col < width; col++) {
-            cellData += `&lt;td>&lt;a href="${productHubLink}" target="_blank" rel="noopener noreferrer">${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/a>&lt;/td><br>`;
-            console.log(cellData);
+            if (row == 0) {
+                cellData += `&lt;th>${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/th><br>`;
+            } else {
+                cellData += `&lt;td>&lt;a href="${productHubLink}" target="_blank" rel="noopener noreferrer">${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/a>&lt;/td><br>`;
+                // console.log(cellData);
+            }
         }
         // check close table row
         if (row == 0) {
