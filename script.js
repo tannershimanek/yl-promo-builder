@@ -54,15 +54,18 @@ function buildTable(len, width) {
 
 
 // find and replace !er command with er img
-function findEssentialRewards() {
+function findEssentialRewards(cellData) {
     // find and replace !er with &lt;img src="">
-    const img = '<img title="Essential Rewards Only" src="#"> alt="Essential Rewards Only"'
-    return -1
+    const img = ' &lt;img title="Essential Rewards Only" src="#"> alt="Essential Rewards Only"';
+    let result = cellData.replace('!er', img)
+    console.log(result);
+    return result;
 }
 
 
-// generate table HTML
+// buildTableHTML
 function getTableData(len, width) {
+    const productHubLink = 'https://mskbase.youngliving.com/product-hub/?language=en-us&productId=0000';
     let cellData = '';
     // let cellData = document.getElementById('c00').firstChild.value;
     // console.log(cellData);
@@ -74,7 +77,7 @@ function getTableData(len, width) {
             cellData += `<br>&lt;tr><br>`;
         }
         for (let col = 0; col < width; col++) {
-            cellData += `&lt;td>&lt;a href="#" target="_blank" rel="noopener noreferrer">${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/a>&lt;/td><br>`;
+            cellData += `&lt;td>&lt;a href="${productHubLink}" target="_blank" rel="noopener noreferrer">${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/a>&lt;/td><br>`;
             console.log(cellData);
         }
         // check close table row
@@ -85,12 +88,12 @@ function getTableData(len, width) {
         }
     }
 
-    // findEssentialRewards();
+    // findEssentialRewards(cellData);
 
     document.getElementById('output').innerHTML = `
-&lt;table class="table-bordered">${cellData}
+&lt;table class="table-bordered">${findEssentialRewards(cellData)}
 &lt;/tbody>
-&lt;/table>`
+&lt;/table>`;
 }
 
 
