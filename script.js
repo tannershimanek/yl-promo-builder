@@ -64,7 +64,7 @@ function findEssentialRewards(cellData) {
 
 
 // buildTableHTML
-function getTableData(len, width) {
+function buildTableHTML(len, width) {
     const productHubLink = 'https://mskbase.youngliving.com/product-hub/?language=en-us&productId=0000';
     let cellData = '';
     // let cellData = document.getElementById('c00').firstChild.value;
