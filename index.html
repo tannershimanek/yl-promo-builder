@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promo Table Builder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Content -->
+    <h1>Promo Table Builder</h1>
+
+    <p>Number of Rows: <input id="row" min="0" max="12" type="number"></p>
+    <p>Number of Columns: <input id="col" min="0" max="12" type="number"></p>
+    <button onclick="buildTable(getNumCols(), getNumRows())" class="text-white">Submit</button>
+    <br>
+    <br>
+
+    <div id="promo_table">
+
+    </div>
+
+    <br>
+    <button onclick="getTableData(getNumCols(), getNumRows())" class="text-white">Generate HTML</button>
+    <br>
+    <br>
+
+    <pre id="output">
+        &lt;p>output&lt/p>
+    </pre>
+  <script src="script.js"></script>
+</body>
+</html>

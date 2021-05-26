@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,300&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 2em;
+    margin-left: 4em;
+    margin-right: 4em;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    margin-top: 1em;
+}
+
+img {
+    margin-left: 1em;
+}
+
+th {
+    background-color: aquamarine;
+}
+
+td { 
+    border: 1px solid black; 
+    text-align: center; 
+    color: blue; 
+}
+
+p { 
+    /* color: blueviolet;  */
+    margin: 1em;
+    padding: .2em;
+}
+
+input {
+    width: 2em;
+    text-align: center;
+}
+
+#easy {
+    border: 2px solid lightseagreen;
+}
+
+#new_game { 
+    margin: 1em;
+}
+
+.border-right { 
+    border-right: 3px solid black; 
+}
+
+.border-left { 
+    border-left: 3px solid black; 
+}
+
+.border-top { 
+    border-top: 3px solid black; 
+}
+
+.border-bottom { 
+    border-bottom: 3px solid black; 
+}
+
+.card { 
+    margin: auto;
+    padding: 1em; border: 1px solid black; 
+    border-radius: 3px; 
+    width: 23.5em;
+}
+
+.center {
+    margin: auto;
+    width: 23.5em;
+}
+
+.invalid {
+    background-color: pink;
+}
+
+.attention {
+    background-color: salmon;
+}
+
+.valid {
+    background-color: lightgreen;
+}
+
+.text-danger {
+    color: firebrick;
+}
