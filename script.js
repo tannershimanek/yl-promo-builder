@@ -5,14 +5,14 @@ let hello = () => {
 // window.addEventListener('load', hello);
 
 function getNumRows() {
-    console.log('num rows');
-    return 3
+    // return 3
+    return document.getElementById('row').value;
 }
 
 
 function getNumCols() {
-    console.log('num cols');
-    return 6
+    //return 6
+    return document.getElementById('col').value;
 }
 
 
@@ -37,18 +37,27 @@ function buildTable(len, width) {
                 const newTableHead = document.createElement('th');
                 newTableRow.appendChild(newTableHead);
                 newTableHead.appendChild(document.createElement('input'));
-                newTableHead.setAttribute('id', `c${row}${col}`); // here for safety might delete later
+                newTableHead.setAttribute('id', `c${row}${col}`);
                 newTableHead.setAttribute('value', 'text');
             } else {
                 // regular table columns
                 const newTableCol = document.createElement('td');
                 newTableRow.appendChild(newTableCol);
                 newTableCol.appendChild(document.createElement('input'));
-                newTableCol.setAttribute('id', `c${row}${col}`); // here for safety might delete later
+                newTableCol.setAttribute('id', `c${row}${col}`);
+                newTableCol.setAttribute('value', 'text');
             }
         }
         newTableBody.appendChild(newTableRow);
     }
+}
+
+
+// find and replace !er command with er img
+function findEssentialRewards() {
+    // find and replace !er with &lt;img src="">
+    const img = '<img title="Essential Rewards Only" src="#"> alt="Essential Rewards Only"'
+    return -1
 }
 
 
@@ -65,7 +74,7 @@ function getTableData(len, width) {
             cellData += `<br>&lt;tr><br>`;
         }
         for (let col = 0; col < width; col++) {
-            cellData += `&lt;td>${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/td><br>`;
+            cellData += `&lt;td>&lt;a href="#" target="_blank" rel="noopener noreferrer">${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/a>&lt;/td><br>`;
             console.log(cellData);
         }
         // check close table row
@@ -76,6 +85,7 @@ function getTableData(len, width) {
         }
     }
 
+    // findEssentialRewards();
 
     document.getElementById('output').innerHTML = `
 &lt;table class="table-bordered">${cellData}
