@@ -58,8 +58,8 @@ function findEssentialRewards(cellData) {
     // find and replace !er with &lt;img src="">
     const img = ' &lt;img title="Essential Rewards Only" src="#" alt="Essential Rewards Only">';
     let result = cellData.replaceAll('!er', img)
-    console.log(result);
-    return result;
+    let final = result.replaceAll('!br', '&lt;br>') // this is a hack, but will refactor later
+    return final;
 }
 
 
