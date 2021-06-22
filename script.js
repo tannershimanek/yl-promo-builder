@@ -1,22 +1,40 @@
-let hello = () => {
-    alert('hello!');
+function listeners() {
+    let dimensionsbtn = document.getElementById('get-table-dimensions');
+    dimensionsbtn.addEventListener('click', () => {
+        buildTable(getHeight(), getWidth());
+        generatebtn.style.display = 'block';
+    });
+    
+    let generatebtn = document.getElementById('generate-html');
+    let codeDisplay = document.getElementById('output');
+    let copybtnDisplay = document.querySelector('.flex-container');
+    generatebtn.addEventListener('click', () => {
+        buildTableHTML(getHeight(), getWidth());
+        codeDisplay.style.display = 'block';
+        copybtnDisplay.style.display = 'flex';
+
+    });
+
+    let copybtn = document.getElementById('copy-table');
+    copybtn.addEventListener('click', () => {
+       copy(); 
+    });
 }
 
-// window.addEventListener('load', hello);
 
-function getNumRows() {
-    // return 3
-    return document.getElementById('row').value;
+function getHeight() {
+    // get table hight
+    return document.getElementById('tbl-height').value;
 }
 
 
-function getNumCols() {
-    //return 6
-    return document.getElementById('col').value;
+function getWidth() {
+    // get table width
+    return document.getElementById('tbl-width').value;
 }
 
 
-function buildTable(len, width) {
+function buildTable(height, width) {
     let table = document.getElementById('promo_table');
     console.log(table); // remove after testing
 
@@ -27,7 +45,7 @@ function buildTable(len, width) {
     table.insertAdjacentElement('afterbegin', newTable);
     newTable.insertAdjacentElement('afterbegin', newTableBody);
 
-    for (let row = 0; row < len; row++) {
+    for (let row = 0; row < height; row++) {
         const newTableRow = document.createElement('tr');
 
         // create table columns
@@ -67,8 +85,6 @@ function findEssentialRewards(cellData) {
 function buildTableHTML(len, width) {
     const productHubLink = 'https://mskbase.youngliving.com/product-hub/?language=en-us&productId=0000';
     let cellData = '';
-    // let cellData = document.getElementById('c00').firstChild.value;
-    // console.log(cellData);
     for (let row = 0; row < len; row++) {
         // check open table row
         if (row == 0) {
@@ -81,7 +97,6 @@ function buildTableHTML(len, width) {
                 cellData += `&lt;th>${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/th><br>`;
             } else {
                 cellData += `&lt;td>&lt;a href="${productHubLink}" target="_blank" rel="noopener noreferrer">${document.getElementById(`c${row}${col}`).firstChild.value}&lt;/a>&lt;/td><br>`;
-                // console.log(cellData);
             }
         }
         // check close table row
@@ -101,4 +116,13 @@ function buildTableHTML(len, width) {
 }
 
 
+function copy() {
+    // copy output
+    tableOutput = document.getElementById('output');
+    console.log('TODO');
+    alert('error, not copied');
+}
+
 // buildTable(3,3);
+
+window.addEventListener('load', listeners);
