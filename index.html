@@ -8,26 +8,51 @@
 
 <body>
   <!-- Content -->
-    <h1>Promo Table Builder</h1>
+<div class="container">
+  <h1>Promo Table Builder</h1>
 
-    <p>Number of Rows: <input id="row" min="0" max="12" type="number"></p>
-    <p>Number of Columns: <input id="col" min="0" max="12" type="number"></p>
-    <button onclick="buildTable(getNumCols(), getNumRows())" class="text-white">Submit</button>
-    <br>
-    <br>
+  <p>Table Height:</p>
+  <input id="tbl-height" min="0" max="12" inputmode="numeric">
+  <p>Table Width:</p>
+  <input id="tbl-width" min="0" max="12" inputmode="numeric">
 
-    <div id="promo_table">
+  <button id="get-table-dimensions" type="submit">Submit</button>
 
-    </div>
+  <div id="promo_table">
 
-    <br>
-    <button onclick="buildTableHTML(getNumCols(), getNumRows())" class="text-white">Generate HTML</button>
-    <br>
-    <br>
+  </div>
 
-    <pre id="output">
-        &lt;p>output&lt/p>
-    </pre>
+  <button id="generate-html" class="text-white" type="submit">Generate HTML</button>
+
+  <pre id="output">
+      &lt;p>output&lt/p>
+  </pre>
+
+  <button id="copy-table" class="flex-container" type="copy">
+    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve" width="20" height="20">
+    <style>
+      .cls-1 {
+        position: relative;
+        fill: #ffff;
+        top: 50px;
+      }
+    </style>
+ <g>
+   <g>
+     <g>
+       <path class="cls-1" d="M330.667,0h-256C51.093,0,32,19.093,32,42.667v298.667h42.667V42.667h256V0z"/>
+       <path class="cls-1" d="M394.667,85.333H160c-23.573,0-42.667,19.093-42.667,42.667v298.667c0,23.573,19.093,42.667,42.667,42.667h234.667
+         c23.573,0,42.667-19.093,42.667-42.667V128C437.333,104.427,418.24,85.333,394.667,85.333z M394.667,426.667H160V128h234.667
+         V426.667z"/>
+     </g>
+   </g>
+ </g>
+ </svg>
+ <span>Copy</span></button>
+</div>
+
   <script src="script.js"></script>
 </body>
+<footer></footer>
 </html>
